@@ -1,0 +1,15 @@
+
+*/obj/*
+*/bin/*
+!**/packages/build/
+!**/packages/build/
+!**/packages/build/
+!**/packages/build/
+!**/packages/build/
+!**/packages/build/
+
+!**/packages/build/
+obj/
+bin/
+node_modules/
+.next/
