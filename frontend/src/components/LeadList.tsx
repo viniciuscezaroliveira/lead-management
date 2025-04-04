@@ -117,7 +117,6 @@ export default function LeadList() {
             <Modal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title="Add New Lead"
             >
                 <LeadAdd onSuccess={() => {
                     setIsModalOpen(false);

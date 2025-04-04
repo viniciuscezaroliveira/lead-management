@@ -1,0 +1,85 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: sqlserver
+    environment:
+        SA_PASSWORD: "oRe2J4ZabG2Y"
+        ACCEPT_EULA: "Y"
+    ports:
+        - "1433:1433"
+    restart: always
+    networks:
+      - app-network
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=LeadsDB;User Id=sa;Password=oRe2J4ZabG2Y;TrustServerCertificate=True
+      - SA_PASSWORD=oRe2J4ZabG2Y
+    ports:
+      - "5001:80"
+    depends_on:
+      - sqlserver
+
+    networks:
+      - app-network
+    restart: unless-stopped
+    command: >
+        sh -c "dotnet Backend.API.dll"
+
+  # backend:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   container_name: backend
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #     - ASPNETCORE_URLS=http://+:80
+  #     - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=LeadsDB;User Id=sa;Password=oRe2J4ZabG2Y;TrustServerCertificate=True
+  #   ports:
+  #     - "5003:80"
+  #   expose:
+  #     - "80"
+  #   depends_on:
+  #     sqlserver:
+  #       condition: service_healthy
+  #   networks:
+  #     - app-network
+  #   restart: unless-stopped
+  #   entrypoint: ["dotnet", "Backend.API.dll"]
+  #   # command: ["sh", "-c", "dotnet ef database update && dotnet Backend.API.dll"]
+  #   command: >
+  #     sh -c "dotnet ef database update && dotnet Backend.API.dll"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5001
+      - PORT=3000
+      - NODE_ENV=development
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    networks:
+      - app-network
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  sqlserver_data:

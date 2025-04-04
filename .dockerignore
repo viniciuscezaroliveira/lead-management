@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+.next
+.env
+Dockerfile
+.dockerignore
+.vscode
+.git
+bin
+obj
+migrations
