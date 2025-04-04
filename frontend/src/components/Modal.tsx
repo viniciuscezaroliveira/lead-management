@@ -20,7 +20,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
                         <div className="absolute top-0 right-0 pt-4 pr-4">
                             <button
                                 onClick={onClose}
-                                className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                                className="cursor-pointer rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                             >
                                 <span className="sr-only">Close</span>
                                 <svg

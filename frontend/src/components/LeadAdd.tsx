@@ -59,7 +59,7 @@ export function LeadAdd({ onSuccess }: LeadAddProps) {
                         <label className="block text-sm font-medium text-gray-700">First Name</label>
                         <input
                             {...register('contactFirstName')}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-4 py-2"
                         />
                         {errors.contactFirstName && (
                             <p className="mt-1 text-sm text-red-600">{errors.contactFirstName.message}</p>
@@ -70,7 +70,7 @@ export function LeadAdd({ onSuccess }: LeadAddProps) {
                         <label className="block text-sm font-medium text-gray-700">Last Name</label>
                         <input
                             {...register('contactLastName')}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-4 py-2"
                         />
                         {errors.contactLastName && (
                             <p className="mt-1 text-sm text-red-600">{errors.contactLastName.message}</p>
@@ -84,7 +84,7 @@ export function LeadAdd({ onSuccess }: LeadAddProps) {
                         <input
                             {...register('contactPhoneNumber')}
                             type="tel"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-4 py-2"
                         />
                         {errors.contactPhoneNumber && (
                             <p className="mt-1 text-sm text-red-600">{errors.contactPhoneNumber.message}</p>
@@ -96,7 +96,7 @@ export function LeadAdd({ onSuccess }: LeadAddProps) {
                         <input
                             {...register('contactEmail')}
                             type="email"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-4 py-2"
                         />
                         {errors.contactEmail && (
                             <p className="mt-1 text-sm text-red-600">{errors.contactEmail.message}</p>
@@ -108,7 +108,7 @@ export function LeadAdd({ onSuccess }: LeadAddProps) {
                     <label className="block text-sm font-medium text-gray-700">Suburb</label>
                     <input
                         {...register('suburb')}
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-4 py-2"
                     />
                     {errors.suburb && (
                         <p className="mt-1 text-sm text-red-600">{errors.suburb.message}</p>
@@ -119,7 +119,7 @@ export function LeadAdd({ onSuccess }: LeadAddProps) {
                     <label className="block text-sm font-medium text-gray-700">Category</label>
                     <input
                         {...register('category')}
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-4 py-2"
                     />
                     {errors.category && (
                         <p className="mt-1 text-sm text-red-600">{errors.category.message}</p>
@@ -131,7 +131,7 @@ export function LeadAdd({ onSuccess }: LeadAddProps) {
                     <textarea
                         {...register('description')}
                         rows={3}
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-4 py-2"
                     />
                     {errors.description && (
                         <p className="mt-1 text-sm text-red-600">{errors.description.message}</p>
@@ -144,7 +144,7 @@ export function LeadAdd({ onSuccess }: LeadAddProps) {
                         {...register('price', { valueAsNumber: true })}
                         type="number"
                         step="0.01"
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 px-4 py-2"
                     />
                     {errors.price && (
                         <p className="mt-1 text-sm text-red-600">{errors.price.message}</p>
