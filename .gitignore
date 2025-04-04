@@ -10,3 +10,5 @@
 !**/packages/build/
 obj/
 bin/
+node_modules/
+.next/
