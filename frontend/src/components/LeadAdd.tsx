@@ -19,7 +19,11 @@ const leadSchema = z.object({
 
 type LeadFormData = z.infer<typeof leadSchema>;
 
-export function LeadAdd() {
+interface LeadAddProps {
+    onSuccess?: () => void;
+}
+
+export function LeadAdd({ onSuccess }: LeadAddProps) {
     const {
         register,
         handleSubmit,
@@ -40,13 +44,14 @@ export function LeadAdd() {
                 dateUpdated: new Date().toISOString()
             });
             reset();
+            onSuccess?.();
         } catch (error) {
             console.error('Error creating lead:', error);
         }
     };
 
     return (
-        <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm text-orange-500 text-gray-800">
+        <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg text-orange-500 text-gray-800">
             <h2 className="text-2xl font-semibold mb-6">Add New Lead</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
