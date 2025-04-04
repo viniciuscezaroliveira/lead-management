@@ -18,7 +18,6 @@ namespace Backend.Application.Services.Lead
         {
             try
             {
-                Console.WriteLine(status);
                 if (status == null)
                 {
                     throw new Exception("Status is required");
