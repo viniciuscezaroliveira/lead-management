@@ -33,29 +33,6 @@ services:
     command: >
         sh -c "dotnet Backend.API.dll"
 
-  # backend:
-  #   build:
-  #     context: ./backend
-  #     dockerfile: Dockerfile
-  #   container_name: backend
-  #   environment:
-  #     - ASPNETCORE_ENVIRONMENT=Development
-  #     - ASPNETCORE_URLS=http://+:80
-  #     - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=LeadsDB;User Id=sa;Password=oRe2J4ZabG2Y;TrustServerCertificate=True
-  #   ports:
-  #     - "5003:80"
-  #   expose:
-  #     - "80"
-  #   depends_on:
-  #     sqlserver:
-  #       condition: service_healthy
-  #   networks:
-  #     - app-network
-  #   restart: unless-stopped
-  #   entrypoint: ["dotnet", "Backend.API.dll"]
-  #   # command: ["sh", "-c", "dotnet ef database update && dotnet Backend.API.dll"]
-  #   command: >
-  #     sh -c "dotnet ef database update && dotnet Backend.API.dll"
 
   frontend:
     build:
